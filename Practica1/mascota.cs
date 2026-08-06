@@ -1,37 +1,62 @@
 using System.Xml.Serialization;
 
 namespace Practica1;
-public abstract class mascota{
-    private string Nombre {get; set; }
-    private string sexo {get; set;}
-    private int edad{get; set;}
-    private string propietario{get; set;}
-    private string codigo {get; set;}
-    private string estado{get; set;}
-    public mascota(string Nombre, string sexo, int edad, string propietario, string codigo, string estado)
+{
+    // Clase abstracta base: accesible desde cualquier otro archivo del mismo namespace
+    public abstract class Mascota
     {
-        Nombre=Nombre;
-        sexo=sexo;
-        edad=edad;
-        propietario=propietario;
-        codigo=generarcodigo();
-        estado="Enfermo";
+        // Atributos encapsulados
+        public string Nombre { get; set; }
+        public double Peso { get; set; } 
+        public string Sexo { get; set; }
+        public int Edad { get; set; }
+        public string Propietario { get; set; }
+        public string CodigoUnico { get; private set; }
+        public string Estado { get; set; }
 
+        // Constructor
+        public Mascota(string nombre, double peso, string sexo, int edad, string propietario)
+        {
+            Nombre = nombre;
+            Peso = peso;
+            Sexo = sexo;
+            Edad = edad;
+            Propietario = propietario;
+            CodigoUnico = GenerarCodigoUnico();
+            Estado = "Enfermo";
+        }
+
+        private string GenerarCodigoUnico()
+        {
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            char[] stringChars = new char[8];
+            Random random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = caracteres[random.Next(caracteres.Length)];
+            }
+
+            return new string(stringChars);
+        }
+
+        public abstract double CalcularDosis(double dosisPorKg);
+
+        public void CambiarEstado(string nuevoEstado)
+        {
+            Estado = nuevoEstado;
+        }
+
+        public virtual void MostrarInformacion()
+        {
+            Console.WriteLine($"\n--- Código: {CodigoUnico} ---");
+            Console.WriteLine($"Nombre: {Nombre}");
+            Console.WriteLine($"Tipo: {GetType().Name}");
+            Console.WriteLine($"Edad: {Edad} años");
+            Console.WriteLine($"Sexo: {Sexo}");
+            Console.WriteLine($"Peso: {Peso} kg");
+            Console.WriteLine($"Propietario: {Propietario}");
+            Console.WriteLine($"Estado: {Estado}");
+        }
     }
-
-  private string generarcodigo(){
-    string caracteres="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
-    char[] caracter=new char[8];
-    Random random = new Random();
-
-    for (int i = 0; i < caracter.Length; i++)
-    {
-        caracter[i]=caracteres[random.Next(caracteres.Length)]
-    }
-
-    return new string(caracter);
-        
-    }  
-
 }
