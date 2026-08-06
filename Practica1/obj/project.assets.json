@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\5toco\\OneDrive\\Escritorio\\IPC2\\Practica 1\\Practica1\\Practica1.csproj",
+      "projectUniqueName": "C:\\Users\\5toco\\OneDrive\\Escritorio\\Practica 1\\IPC2_practicas_202504191\\Practica1\\Practica1.csproj",
       "projectName": "Practica1",
-      "projectPath": "C:\\Users\\5toco\\OneDrive\\Escritorio\\IPC2\\Practica 1\\Practica1\\Practica1.csproj",
+      "projectPath": "C:\\Users\\5toco\\OneDrive\\Escritorio\\Practica 1\\IPC2_practicas_202504191\\Practica1\\Practica1.csproj",
       "packagesPath": "C:\\Users\\5toco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\5toco\\OneDrive\\Escritorio\\IPC2\\Practica 1\\Practica1\\obj\\",
+      "outputPath": "C:\\Users\\5toco\\OneDrive\\Escritorio\\Practica 1\\IPC2_practicas_202504191\\Practica1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\5toco\\AppData\\Roaming\\NuGet\\NuGet.Config",
