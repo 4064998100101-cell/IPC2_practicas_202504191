@@ -1,7 +1,6 @@
 using System.Xml.Serialization;
 
 namespace Practica1;
-{
     // Clase abstracta base: accesible desde cualquier otro archivo del mismo namespace
     public abstract class Mascota
     {
@@ -59,4 +58,3 @@ namespace Practica1;
             Console.WriteLine($"Estado: {Estado}");
         }
     }
-}
