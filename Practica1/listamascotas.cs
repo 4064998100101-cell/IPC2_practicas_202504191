@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace Practica1
 {
     public class listamascotas
@@ -40,10 +42,25 @@ namespace Practica1
                 cola=nuevonodo;
             }
         } 
+    public Mascota? busca(string cod)
+        {
+            nodomascota? actual=cabeza;
+            while (actual != null)
+            {
+                if (actual.mascota.CodigoUnico==cod)
+                {
+                    return actual.mascota;
 
+                }
+                actual=actual.siguiente;
+            }
+            return null;
+
+        } 
 
         
     }
+
 
 
 }

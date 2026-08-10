@@ -23,6 +23,8 @@ namespace Practica1
             base.MostrarInformacion();
             Console.WriteLine($"Tipo de Caparazón: {TipoCaparazon}");
             Console.WriteLine($"Es Acuática: {(EsAcuatica ? "Sí" : "No")}");
+            
+
         }
     }
 }
