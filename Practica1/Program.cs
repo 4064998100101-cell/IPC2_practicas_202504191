@@ -180,7 +180,7 @@ class Program
         
         {  
         Console.WriteLine("+=========================================");   
-        Console.WriteLine("1. Cambiar estado de la mascota (enfermo, recuperado) ");
+        Console.WriteLine("1. Cambiar estado de la mascota (enfermo, recuperado, etc) ");
         Console.WriteLine("2. Calcular las dosis necesaria");
         Console.WriteLine("3. Consultar los datos");
         Console.WriteLine("0. Regresar");
@@ -204,7 +204,7 @@ class Program
                 case 2:
                 Console.WriteLine("Ingrese la dosis");
                 double dosis=double.Parse(Console.ReadLine());
-                animalencontrado.CalcularDosis(dosis);
+                Console.WriteLine("La dosis para este animal es: "+animalencontrado.CalcularDosis(dosis));
 
                 break;
 
@@ -212,7 +212,7 @@ class Program
 
                 animalencontrado.MostrarInformacion();
                 break;
-                
+
                 case 0: repetir=false; break;
                 default: Console.WriteLine("Opcion no valida"); break;
             }
