@@ -2,8 +2,8 @@ namespace Practica1
 {
     public class Gato : Mascota
     {
-        public string Raza { get; set; }
-        public bool Esterilizado { get; set; }
+        public string Raza { get; private set; }
+        public bool Esterilizado { get; private set; }
 
         public Gato(string nombre, double peso, string sexo, int edad, string propietario, string raza, bool esterilizado)
             : base(nombre, peso, sexo, edad, propietario)

@@ -58,7 +58,29 @@ namespace Practica1
 
         } 
 
+     public void mostrarmascotas()
+        {
+
+    if (cabeza == null)
+    {
+        Console.WriteLine("La lista esta vacia.");
+        return; 
+    }
+
+    Console.WriteLine("+----------------------------------------+");
+    Console.WriteLine("| Codigo | Nombre | Propietario | Estado |");
+    Console.WriteLine("+----------------------------------------+");
+    nodomascota? actual = cabeza;
+
+
+    while (actual != null)
+    {
+        Console.WriteLine($"| {actual.mascota.CodigoUnico} | {actual.mascota.Nombre} | {actual.mascota.Propietario} | {actual.mascota.Estado} |");
         
+        actual = actual.siguiente;
+    }
+    Console.WriteLine("+----------------------------------------+");
+        }   
     }
 
 

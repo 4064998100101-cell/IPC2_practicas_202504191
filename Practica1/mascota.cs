@@ -11,7 +11,7 @@ namespace Practica1;
         private int Edad { get; set; }
         public string Propietario { get; private set; }
         public string CodigoUnico { get; private set; }
-        public string Estado { get; set; }
+        public string Estado { get; private set; }
 
         // Constructor
         public Mascota(string nombre, double peso, string sexo, int edad, string propietario)

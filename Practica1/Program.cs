@@ -51,7 +51,7 @@ class Program
         Console.WriteLine("Ingrese el nombre del propietario:");
         string propietario = Console.ReadLine();
 
-        // Declaración fuera del try para mantener el alcance (scope)
+        
         double peso = 0;
         int edad = 0;
 
@@ -70,7 +70,7 @@ class Program
         }
 
         Console.WriteLine("Ingrese el tipo de animal (ave, gato, perro o tortuga):");
-        string tipo = Console.ReadLine().ToLower().Trim();
+        string tipo = Console.ReadLine();
 
         if (tipo == "tortuga")
         {
@@ -106,10 +106,20 @@ class Program
           
         }
         else if (tipo=="ave")
+
         {
-            Console.WriteLine("Ingrese la envergadura de las alas");
-            double envergadura = double.Parse(Console.ReadLine());
-            
+            double envergadura=0;
+            try
+            {
+                            Console.WriteLine("Ingrese la envergadura de las alas en numeros");
+             envergadura = double.Parse(Console.ReadLine());
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+
             Console.WriteLine("puede volar? Y/N");
             bool siono=false;
             string vol=Console.ReadLine();
@@ -183,6 +193,7 @@ class Program
         Console.WriteLine("1. Cambiar estado de la mascota (enfermo, recuperado, etc) ");
         Console.WriteLine("2. Calcular las dosis necesaria");
         Console.WriteLine("3. Consultar los datos");
+        Console.WriteLine("4. Mostrar todas las mascotas");
         Console.WriteLine("0. Regresar");
         Console.WriteLine("+=========================================");
         
@@ -213,6 +224,11 @@ class Program
                 animalencontrado.MostrarInformacion();
                 break;
 
+                case 4:
+                
+                listamascota.mostrarmascotas(); 
+                break;
+
                 case 0: repetir=false; break;
                 default: Console.WriteLine("Opcion no valida"); break;
             }
@@ -233,6 +249,8 @@ class Program
 
         
     }
+
+    
     
 
 }

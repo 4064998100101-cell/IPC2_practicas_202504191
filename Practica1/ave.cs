@@ -2,8 +2,8 @@ namespace Practica1
 {
     public class Ave : Mascota
     {
-        public double EnvergaduraAlas { get; set; }
-        public bool PuedeVolar { get; set; }
+        public double EnvergaduraAlas { get; private set; }
+        public bool PuedeVolar { get; private set; }
 
         public Ave(string nombre, double peso, string sexo, int edad, string propietario, double envergaduraAlas, bool puedeVolar)
             : base(nombre, peso, sexo, edad, propietario)
