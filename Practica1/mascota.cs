@@ -5,11 +5,11 @@ namespace Practica1;
     public abstract class Mascota
     {
         // Atributos encapsulados
-        public string Nombre {  get; set; }
-        public double Peso { get; set; } 
+        public string Nombre {  get; private set; }
+        public double Peso { get; private set; } 
         private string Sexo { get; set; }
         private int Edad { get; set; }
-        public string Propietario { get; set; }
+        public string Propietario { get; private set; }
         public string CodigoUnico { get; private set; }
         public string Estado { get; set; }
 
