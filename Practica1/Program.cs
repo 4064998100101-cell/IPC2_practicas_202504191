@@ -57,7 +57,7 @@ class Program
 
         try
         {
-            Console.WriteLine("Ingrese el peso de la mascota:");
+            Console.WriteLine("Ingrese el peso de la mascota en kg y en numeros:");
             peso = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Ingrese la edad de la mascota en numeros enteros:");
@@ -117,7 +117,7 @@ class Program
             catch (System.Exception)
             {
                 
-                throw;
+                Console.WriteLine("Debe ser un valor numerico el ingresado");
             }
 
             Console.WriteLine("puede volar? Y/N");
@@ -215,7 +215,7 @@ class Program
                 case 2:
                 Console.WriteLine("Ingrese la dosis");
                 double dosis=double.Parse(Console.ReadLine());
-                Console.WriteLine("La dosis para este animal es: "+animalencontrado.CalcularDosis(dosis));
+                Console.WriteLine("La dosis para este animal es: "+animalencontrado.CalcularDosis(dosis)+" mg");
 
                 break;
 
