@@ -171,11 +171,12 @@ class Program
         Console.WriteLine("|         GESTION DE MASCOTAS            |");
         Console.WriteLine("+=========================================");
     
+
+       
+        listamascota.mostrarmascotas(); 
         Console.WriteLine("Ingrese el codigo unico de la mascota");  
         string codigo=Console.ReadLine();
         Mascota? animalencontrado = listamascota.busca(codigo);
-
-
         
         if(animalencontrado!=null)
         {

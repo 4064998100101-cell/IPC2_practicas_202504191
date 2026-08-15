@@ -67,15 +67,15 @@ namespace Practica1
         return; 
     }
 
-    Console.WriteLine("+----------------------------------------+");
-    Console.WriteLine("| Codigo | Nombre | Propietario | Estado |");
-    Console.WriteLine("+----------------------------------------+");
+    Console.WriteLine("+---------------------------------------------------------+");
+    Console.WriteLine("| Codigo | Nombre | Propietario | Estado | Tipo de animal |");
+    Console.WriteLine("+---------------------------------------------------------+");
     nodomascota? actual = cabeza;
 
 
     while (actual != null)
     {
-        Console.WriteLine($"| {actual.mascota.CodigoUnico} | {actual.mascota.Nombre} | {actual.mascota.Propietario} | {actual.mascota.Estado} |");
+        Console.WriteLine($"| {actual.mascota.CodigoUnico} | {actual.mascota.Nombre} | {actual.mascota.Propietario} | {actual.mascota.Estado} | |{actual.mascota.GetType().Name}|");
         
         actual = actual.siguiente;
     }
