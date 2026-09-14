@@ -34,7 +34,7 @@ using System.Text.Json;
             {
                 foreach (var cancion in cancionesLeidas)
                 {
-                    // Insertamos cada canción en la cola basada en arreglos
+
                     colaReproduccion.Encolar(cancion);
                 }
             }
