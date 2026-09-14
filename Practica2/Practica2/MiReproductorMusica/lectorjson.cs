@@ -4,49 +4,51 @@ namespace MiReproductorMusica
 using System;
 using System.IO;
 using System.Text.Json;
-
+public class Carga
+    {
+        public ColaCanciones Cola{get; set;}
+        public ArbolBinarioBusqueda Arbol {get; set;}
+        public Carga()
+        {
+            Cola=new ColaCanciones();
+            Arbol=new ArbolBinarioBusqueda();
+        }
+    }
     public class LectorJson
 {
-
-    public ColaCanciones CargarColaCanciones(string rutaArchivo)
-    {
-        ColaCanciones colaReproduccion = new ColaCanciones();
-
-        try
+public Carga CargarDatos(string rutaArchivo)
         {
-            if (!File.Exists(rutaArchivo))
+            Carga resultado= new Carga();
+            try
             {
-                Console.WriteLine($"El archivo no se encontró en la ruta: {rutaArchivo}");
-                return colaReproduccion;
-            }
-
-            string jsonString = File.ReadAllText(rutaArchivo);
-
-            var opciones = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-
-            Cancion[] cancionesLeidas = JsonSerializer.Deserialize<Cancion[]>(jsonString, opciones);
-
-            if (cancionesLeidas != null)
-            {
-                foreach (var cancion in cancionesLeidas)
+                if (!File.Exists(rutaArchivo))
                 {
-
-                    colaReproduccion.Encolar(cancion);
+                    Console.WriteLine("No se encontro la ruta del archivo");
+                    return resultado;
                 }
+                string jsonString =File.ReadAllText(rutaArchivo);
+                var opciones=new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive=true
+                };
+                Cancion[] cancionesLEidas=JsonSerializer.Deserialize<Cancion[]>(jsonString, opciones);
+                if (cancionesLEidas != null)
+                {
+                    foreach(var cancion in cancionesLEidas)
+                    {
+                        resultado.Cola.Encolar(cancion);
+                        resultado.Arbol.Insertar(cancion);
+                    }
+                    
+                }
+                Console.WriteLine("Datos cargados con exito en ambos TDAS");
             }
-
-            Console.WriteLine("¡Canciones cargadas exitosamente en la cola de reproducción!");
+            catch (System.Exception)
+            {
+                Console.WriteLine("Error al procesar el JSON");
+            }
+            return resultado;
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error al procesar el archivo JSON: {ex.Message}");
-        }
 
-        return colaReproduccion;
-    }
 }
 }
