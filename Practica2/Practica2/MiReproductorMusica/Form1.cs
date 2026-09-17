@@ -152,7 +152,9 @@ public partial class Form1 : Form
 
         if (cancionActual != null)
         {
-            lblInfoActual.Text = $"Reproduciendo:\nTítulo: {cancionActual.Titulo} | Artista: {cancionActual.Artista} | Género: {cancionActual.Genero} ({cancionActual.Duracion} min)";
+
+ lblInfoActual.Text = $"Reproduciendo: Título: {cancionActual.Titulo} | Artista: {cancionActual.Artista} | Duracion ({cancionActual.Duracion} min)";
+        
         }
 
         ActualizarMetricasCola();
