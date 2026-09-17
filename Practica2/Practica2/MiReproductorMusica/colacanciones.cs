@@ -63,5 +63,9 @@ namespace MiReproductorMusica
             final=contador-1;
             capacidad=nuevaCapacidad;
         }
+        public int ObtenerTamanio()
+    {
+        return contador;
+    }
     }
 }

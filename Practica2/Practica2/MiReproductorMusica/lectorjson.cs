@@ -4,7 +4,9 @@ namespace MiReproductorMusica
 using System;
 using System.IO;
 using System.Text.Json;
-public class Carga
+    using System.Text.Json.Serialization;
+
+    public class Carga
     {
         public ColaCanciones Cola{get; set;}
         public ArbolBinarioBusqueda Arbol {get; set;}
@@ -29,7 +31,9 @@ public Carga CargarDatos(string rutaArchivo)
                 string jsonString =File.ReadAllText(rutaArchivo);
                 var opciones=new JsonSerializerOptions
                 {
-                    PropertyNameCaseInsensitive=true
+                    PropertyNameCaseInsensitive=true,
+                    UnmappedMemberHandling=JsonUnmappedMemberHandling.Skip
+
                 };
                 Cancion[] cancionesLEidas=JsonSerializer.Deserialize<Cancion[]>(jsonString, opciones);
                 if (cancionesLEidas != null)
@@ -50,5 +54,8 @@ public Carga CargarDatos(string rutaArchivo)
             return resultado;
         }
 
+        
+
 }
+
 }

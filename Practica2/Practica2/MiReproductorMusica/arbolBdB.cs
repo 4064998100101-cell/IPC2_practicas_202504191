@@ -19,9 +19,10 @@ namespace MiReproductorMusica
             {
                 return new NodoArbol(cancion);
             }
+
             int comparacion= string.Compare(cancion.Titulo, actual.CancionDatos.Titulo,StringComparison.OrdinalIgnoreCase);
             
-            if (comparacion<0)
+            if (comparacion < 0)
             {
                 actual.Hijoizq = insertar(actual.Hijoizq, cancion);
             }

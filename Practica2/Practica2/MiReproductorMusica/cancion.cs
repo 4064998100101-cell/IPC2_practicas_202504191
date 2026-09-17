@@ -1,17 +1,20 @@
 using System.Text.Json.Serialization;
-namespace MiReproductorMusica
+
+public class Cancion
 {
-    public class Cancion
-    {
-       [JsonPropertyName("titulo")]
-       public string Titulo {get; private set;}
+    [JsonPropertyName("titulo")]
+    [JsonInclude]
+    public string Titulo { get; set; }
 
-       [JsonPropertyName("artista")]
-       public string Artista {get; private set;}
+    [JsonPropertyName("artista")]
+    [JsonInclude]
+    public string Artista { get; set; }
 
-       [JsonPropertyName("genero")]
-       public string Genero {get; private set;}
-       [JsonPropertyName("duracion")]
-       public int Duracion {get; private set;} 
-    }
+    [JsonPropertyName("genero")]
+    [JsonInclude]
+    public string Genero { get; set; }
+
+    [JsonPropertyName("duracion")]
+    [JsonInclude]
+    public int Duracion { get; set; }
 }
