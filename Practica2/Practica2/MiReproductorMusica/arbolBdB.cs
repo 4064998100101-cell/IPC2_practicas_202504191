@@ -1,3 +1,6 @@
+using System;
+using System.Text;
+
 namespace MiReproductorMusica
 {
     public class ArbolBinarioBusqueda
@@ -71,6 +74,57 @@ namespace MiReproductorMusica
         {
             return raiz;
         }
+        
+ public string GenerarDotGraphviz()
+    {
+        StringBuilder dot = new StringBuilder();
+        dot.AppendLine("digraph ArbolBiblioteca {");
+        dot.AppendLine("    node [shape=circle, style=filled, fillcolor=lightyellow];");
+
+        if (raiz == null)
+        {
+            dot.AppendLine("    vacio [label=\"Árbol Vacío\", fillcolor=lightgray];");
+        }
+        else
+        {
+            GenerarConexionesDot(raiz, dot);
+        }
+
+        dot.AppendLine("}");
+        return dot.ToString();
+    }
+
+    private void GenerarConexionesDot(NodoArbol nodo, StringBuilder dot)
+    {
+        string idActual = $"\"{nodo.CancionDatos.Titulo}\"";
+        dot.AppendLine($"    {idActual} [label=\"{nodo.CancionDatos.Titulo}\\n({nodo.CancionDatos.Genero})\"];");
+
+        if (nodo.Hijoizq != null)
+        {
+            string idIzq = $"\"{nodo.Hijoizq.CancionDatos.Titulo}\"";
+            dot.AppendLine($"    {idActual} -> {idIzq};");
+            GenerarConexionesDot(nodo.Hijoizq, dot);
+        }
+        else
+        {
+            string idNullIzq = $"null_left_{nodo.GetHashCode()}";
+            dot.AppendLine($"    {idNullIzq} [shape=point];");
+            dot.AppendLine($"    {idActual} -> {idNullIzq};");
+        }
+
+        if (nodo.Hijoder != null)
+        {
+            string idDer = $"\"{nodo.Hijoder.CancionDatos.Titulo}\"";
+            dot.AppendLine($"    {idActual} -> {idDer};");
+            GenerarConexionesDot(nodo.Hijoder, dot);
+        }
+        else
+        {
+            string idNullDer = $"null_right_{nodo.GetHashCode()}";
+            dot.AppendLine($"    {idNullDer} [shape=point];");
+            dot.AppendLine($"    {idActual} -> {idNullDer};");
+        }
+    }
 
     }
 }

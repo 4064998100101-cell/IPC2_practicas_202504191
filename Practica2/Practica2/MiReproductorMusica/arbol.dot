@@ -1,0 +1,20 @@
+digraph ArbolBiblioteca {
+    node [shape=circle, style=filled, fillcolor=lightyellow];
+    "Bohemian Rhapsody" [label="Bohemian Rhapsody\n(Rock)"];
+    "Bohemian Rhapsody" -> "Blinding Lights";
+    "Blinding Lights" [label="Blinding Lights\n(Pop)"];
+    null_left_16201697 [shape=point];
+    "Blinding Lights" -> null_left_16201697;
+    null_right_16201697 [shape=point];
+    "Blinding Lights" -> null_right_16201697;
+    "Bohemian Rhapsody" -> "Take Five";
+    "Take Five" [label="Take Five\n(Jazz)"];
+    "Take Five" -> "Clair de Lune";
+    "Clair de Lune" [label="Clair de Lune\n(Clásica)"];
+    null_left_9295473 [shape=point];
+    "Clair de Lune" -> null_left_9295473;
+    null_right_9295473 [shape=point];
+    "Clair de Lune" -> null_right_9295473;
+    null_right_53732296 [shape=point];
+    "Take Five" -> null_right_53732296;
+}

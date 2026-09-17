@@ -1,0 +1,11 @@
+digraph ColaReproduccion {
+    rankdir=LR;
+    node [shape=record, style=filled, fillcolor=lightblue];
+    nodo0 [label="{Título: Bohemian Rhapsody\nArtista: Queen\nGénero: Rock (6 min)}"];
+    nodo1 [label="{Título: Blinding Lights\nArtista: The Weeknd\nGénero: Pop (3 min)}"];
+    nodo2 [label="{Título: Take Five\nArtista: Dave Brubeck\nGénero: Jazz (5 min)}"];
+    nodo3 [label="{Título: Clair de Lune\nArtista: Claude Debussy\nGénero: Clásica (8 min)}"];
+    nodo0 -> nodo1;
+    nodo1 -> nodo2;
+    nodo2 -> nodo3;
+}

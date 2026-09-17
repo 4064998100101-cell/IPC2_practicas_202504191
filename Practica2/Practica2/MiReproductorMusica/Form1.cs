@@ -228,6 +228,13 @@ public partial class Form1 : Form
     private void ActualizarMetricasCola()
     {
         int cancionesRestantes = colaReproduccion.ObtenerTamanio();
-        lblTiempoTotal.Text = $"Canciones en espera en la cola: {cancionesRestantes}";
+        int tiempototal=colaReproduccion.CalculartiempoTotal();
+        File.WriteAllText("cola.dot", colaReproduccion.GenerarDotGraphiviz());
+       File.WriteAllText("arbol.dot", bibliotecaArbol.GenerarDotGraphviz());
+       MessageBox.Show("Archivos DOT de Graphviz generados con éxito en la raíz del proyecto.", "Graphviz", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        lblTiempoTotal.Text = $"Canciones en espera en la cola: {cancionesRestantes} | Tiempo total estimado:{tiempototal} min";
+        MessageBox.Show("Archivos DOT de Graphviz generados con éxito en la raíz del proyecto.", "Graphviz", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    
+    
     }
 }
