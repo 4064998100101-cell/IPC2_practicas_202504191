@@ -46,7 +46,10 @@ namespace MiReproductorMusica
                 return null;
             }
             Cancion cancion=arreglo[frente];
+
+            
             arreglo[frente]=null;
+            
             frente=(frente+1)%capacidad;
             contador--;
             return cancion;
@@ -114,8 +117,7 @@ namespace MiReproductorMusica
 
             for (int i = 0; i < contador; i++)
             {
-                int index = (frente + i) % contador; // Nota: ajustado para representación lineal o circular
-                // Usamos una representación clara de los nodos en la cola
+                int index = (frente + i) % contador;
                 Cancion c = arreglo[(frente + i) % capacidad];
                 if (c != null)
                 {

@@ -75,8 +75,9 @@ namespace MiReproductorMusica
             return raiz;
         }
         
- public string GenerarDotGraphviz()
+     public string GenerarDotGraphviz()
     {
+
         StringBuilder dot = new StringBuilder();
         dot.AppendLine("digraph ArbolBiblioteca {");
         dot.AppendLine("    node [shape=circle, style=filled, fillcolor=lightyellow];");
@@ -92,6 +93,7 @@ namespace MiReproductorMusica
 
         dot.AppendLine("}");
         return dot.ToString();
+        
     }
 
     private void GenerarConexionesDot(NodoArbol nodo, StringBuilder dot)
