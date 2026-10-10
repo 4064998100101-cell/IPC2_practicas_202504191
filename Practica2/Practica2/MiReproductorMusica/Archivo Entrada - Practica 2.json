@@ -1,0 +1,21 @@
+[
+  {
+    "titulo": "Bohemian Rhapsody",
+    "artista": "Queen",
+    "genero": "Rock",
+    "duracion": 4
+  },
+  {
+    "titulo": "Blinding Lights",
+    "artista": "The Weeknd",
+    "genero": "Pop",
+    "duracion": 3
+  },
+  {
+    "titulo": "Take Five",
+    "artista": "Dave Brubeck",
+    "genero": "Jazz",
+    "duracion": 5
+  }
+
+]

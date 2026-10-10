@@ -1,5 +1,9 @@
 digraph ColaReproduccion {
     rankdir=LR;
     node [shape=record, style=filled, fillcolor=lightblue];
-    vacia [label="Cola Vacía", fillcolor=lightgray];
+    nodo0 [label="{Título: Bohemian Rhapsody\nArtista: Queen\nGénero: Rock (4 min)}"];
+    nodo1 [label="{Título: Blinding Lights\nArtista: The Weeknd\nGénero: Pop (3 min)}"];
+    nodo2 [label="{Título: Take Five\nArtista: Dave Brubeck\nGénero: Jazz (5 min)}"];
+    nodo0 -> nodo1;
+    nodo1 -> nodo2;
 }
