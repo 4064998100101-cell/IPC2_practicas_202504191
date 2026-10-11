@@ -96,6 +96,15 @@ namespace Practica3.Controllers
             }
             return View("Detalle", mascota);
         }
+        [HttpPost]
+        public IActionResult Eliminar(string codigoUnico)
+        {
+            if(!string.IsNullOrEmpty(codigoUnico))
+            {
+                listaMascotasCompartida.eliminar(codigoUnico);
+            }
+            return RedirectToAction("Index");
+        }
 
     }
 }

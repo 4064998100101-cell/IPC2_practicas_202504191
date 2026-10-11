@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Runtime.Serialization;
 
 namespace Practica3.Models
@@ -81,7 +82,7 @@ namespace Practica3.Models
     }
     Console.WriteLine("+----------------------------------------+");
         }   
-        public List<Mascota> ObtenerTodas()
+public List<Mascota> ObtenerTodas()
 {
     List<Mascota> listaTemporal = new List<Mascota>();
     nodomascota? actual = cabeza;
@@ -92,6 +93,41 @@ namespace Practica3.Models
     }
     return listaTemporal;
 }
+
+
+         public bool eliminar(string cd)
+        {
+            if (cabeza==null)
+            {
+                return false;
+
+            }
+            if(cabeza.mascota.CodigoUnico==cd)
+            {
+                cabeza=cabeza.siguiente;
+                if(cabeza==null)
+                {
+                    cola=null;
+                }
+                return true;
+            }
+            nodomascota actual=cabeza;
+            while(actual.siguiente!= null)
+            {
+                if(actual.siguiente.mascota.CodigoUnico==cd)
+                {
+                    actual.siguiente=actual.siguiente.siguiente;
+                    if(actual.siguiente==null)
+                    {
+                        cola=actual;
+                    }
+                    return true;
+                }
+                actual=actual.siguiente;
+            }
+            return false;
+
+        }
     }
 
 
