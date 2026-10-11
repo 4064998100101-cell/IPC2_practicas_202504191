@@ -81,6 +81,17 @@ namespace Practica3.Models
     }
     Console.WriteLine("+----------------------------------------+");
         }   
+        public List<Mascota> ObtenerTodas()
+{
+    List<Mascota> listaTemporal = new List<Mascota>();
+    nodomascota? actual = cabeza;
+    while (actual != null)
+    {
+        listaTemporal.Add(actual.mascota);
+        actual = actual.siguiente;
+    }
+    return listaTemporal;
+}
     }
 
 

@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Registrar Mascota";
+}
+
+<div class="container mt-4">
+    <h2>Registrar Nueva Mascota</h2>
+    <hr />
+    <form asp-action="Registrar" method="post">
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" name="nombre" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Peso (kg)</label>
+            <input type="number" step="any" name="peso" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sexo</label>
+            <input type="text" name="sexo" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Edad (años)</label>
+            <input type="number" name="edad" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Propietario</label>
+            <input type="text" name="propietario" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tipo de animal (perro, gato, ave, tortuga)</label>
+            <input type="text" name="tipo" class="form-control" required />
+        </div>
+        
+        <!-- Campos específicos opcionales según el animal -->
+        <div class="mb-3">
+            <label class="form-label">Raza (Perro/Gato)</label>
+            <input type="text" name="raza" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tamaño (Perro)</label>
+            <input type="text" name="tamanio" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Envergadura (Ave)</label>
+            <input type="number" step="any" name="envergadura" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">¿Puede volar / Esterilizado? (true/false)</label>
+            <input type="text" name="vuela" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Caparazón (Tortuga)</label>
+            <input type="text" name="caparazon" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">¿Es acuática? (true/false)</label>
+            <input type="text" name="acuatica" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar Mascota</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,68 @@
+@model Practica3.Models.Mascota
+@{
+    ViewData["Title"]="Detalle y Gestion de Mascotas";
+
+}
+
+<div class="container mt-4">
+    <h2>Gestion del Paciente</h2>
+    <hr />
+    @if (Model==null)
+    {
+        <div class="alert alert-danger">Mascota no encontrada</div>
+
+    }
+    else
+    {
+        <div class="card mb-4">
+            <div class "card-header bg-info text-white">
+                <h4>@Model.Nombre (@Model.GetType().Name)</h4>
+            </div>
+            <div class="card-body">
+                <p><strong>Codigo Unico:</strong>@Model.CodigoUnico</p>
+                <p><strong>Propietario:</strong>@Model.Propietario</p>
+                <p><strong>Peso:</strong>@Model.Peso kg</p>
+                <p><strong>Estado Actual:</strong><span class ="badge bg-warning text-dark">@Model.Estado</span></p>
+            @if (ViewBag.DosisCalculada!= null)
+                {
+                    <div class="alert alert-success mt-3">
+                        <strong>Dosis calculada:</strong> @ViewBag.DosisCalculada mg
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div class="row">
+            <!--Formulario para cambiar estado --->
+            <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                    <h5>Cambiar Estado</h5>
+                    <form asp-action="CambiarEstado" method="post">
+                        <input type="hidden" name="codigoUnico" value="@Model.CodigoUnico"/>
+                        <div class="mb-3">
+                            <label class="form-label"> Nuevo Estado</label>
+                            <input type="text" name="nuevoEstado" class="form-control" placeholder="Ejemplo. Sana, Enferma" required/>
+
+                        </div>
+                        <button type="submit" class="btn btn-warning"> Actualizar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Formulario para calcular la dosis-->
+           <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                    <h5>Calcular Dosis de Medicamento</h5>
+                    <form asp-action="CalcularDosis" method="post">
+                        <input type="hidden" name="codigoUnico" value="@Model.CodigoUnico" />
+                        <div class="mb-3">
+                            <label class="form-label">Dosis base por kg</label>
+                            <input type="number" step="any" name="dosisBase" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calcular Dosis</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    }
+</div>
