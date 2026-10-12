@@ -57,5 +57,13 @@ namespace Practica3.Models{
             Console.WriteLine($"Propietario: {Propietario}");
             Console.WriteLine($"Estado: {Estado}");
         }
+    public void ActualizarDatos(string nombre, double peso, string sexo, int edad, string propietario)
+        {
+            Nombre = nombre;
+            Peso = peso;
+            Sexo = sexo;
+            Edad = edad;
+            Propietario = propietario;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.ComponentModel.Design;
 using System.Reflection;
 using System.Reflection.PortableExecutable;
+using System.Runtime.ExceptionServices;
 using Microsoft.AspNetCore.Mvc;
 using Practica3.Models;
 namespace Practica3.Controllers
@@ -104,6 +105,31 @@ namespace Practica3.Controllers
                 listaMascotasCompartida.eliminar(codigoUnico);
             }
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Editar(string id)
+        {
+            if(string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+            Mascota mascota=listaMascotasCompartida.busca(id);
+            if(mascota==null)
+            {
+                return NotFound();
+            }  
+            return View(mascota);
+        }
+        [HttpPost]
+        public IActionResult Editar(string codigoUnico, string nombre, double peso, string sexo, int edad, string propietario)
+        {
+            Mascota mascota=listaMascotasCompartida.busca(codigoUnico);
+            if(mascota!= null)
+            {
+                mascota.ActualizarDatos(nombre,peso,sexo,edad,propietario);
+            }
+            return RedirectToAction("Index");
+
         }
 
     }
