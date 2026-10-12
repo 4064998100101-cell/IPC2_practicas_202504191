@@ -57,4 +57,5 @@ namespace Practica1;
             Console.WriteLine($"Propietario: {Propietario}");
             Console.WriteLine($"Estado: {Estado}");
         }
+
     }
