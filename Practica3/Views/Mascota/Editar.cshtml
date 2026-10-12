@@ -1,0 +1,46 @@
+@model Practica3.Models.Mascota
+@{
+    ViewData["Title"]="Editar Mascota";
+}
+<div class="container mt-4">
+    <h2>Editar Informacion de la Mascota</h2>
+    <hr />
+    <form asp-action="Editar" method="post">
+        <input type="hidden" name="codigoUnico" value="@Model.CodigoUnico" />
+
+        <div class="mb-3">
+            <label class="form-label">Codigo Unico</label>
+            <input type="text"  class="form-control" value="@Model.CodigoUnico" disabled />    
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" value="@Model.Nombre" required />    
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Peso (kg)</label>
+            <input type="number" step="any" name="peso" class="form-control" value="@Model.Peso" required />    
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Sexo</label>
+            <input type="text" name="sexo" class="form-control" value="@Model.Sexo" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Edad (años)</label>
+            <input type="number" name="edad" class="form-control" value="@Model.Edad" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Propietario</label>
+            <input type="text" name="propietario" class="form-control" value="@Model.Propietario" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+
+
+    </form>
+</div>
